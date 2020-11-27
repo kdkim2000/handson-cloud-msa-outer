@@ -2,7 +2,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
   name: eshop-gateway
-  namespace: default
+  namespace: eshop-app
 spec:
   selector:
     istio: ingressgateway # use istio default controller
@@ -133,9 +133,10 @@ spec:
       weight: 50
 ---
 apiVersion: networking.istio.io/v1alpha3
-kind: DestinationRule
+kind: VirtualService
 metadata:
-  name: eshop-frontend
+  name: eshop-virtual-service
+  namespace: eshop-app
 spec:
   host: eshop-frontend
   trafficPolicy:
