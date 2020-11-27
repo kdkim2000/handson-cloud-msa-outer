@@ -37,6 +37,12 @@ spec:
         host: eshop-cartservice
         port:
           number: 8091
+      weight: 50
+    - destination:
+        host: eshop-cartservice
+        port:
+          number: 8091
+      weight: 50
   - match:
     - uri:
         prefix: /api/products/
@@ -49,6 +55,12 @@ spec:
         host: eshop-productservice
         port:
           number: 8092
+      weight: 50
+    - destination:
+        host: eshop-productservice
+        port:
+          number: 8092
+      weight: 50
   - match:
     - uri:
         prefix: /api/recommends/
@@ -112,13 +124,13 @@ spec:
         subset: v1
         port:
           number: 8080
-      weight: 0
+      weight: 50
     - destination:
         host: eshop-frontend
         subset: v2
         port:
           number: 8080
-      weight: 100
+      weight: 50
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
