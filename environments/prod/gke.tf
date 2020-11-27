@@ -31,7 +31,7 @@ resource "google_container_cluster" "primary" {
     enabled = true
     resource_limits {
       resource_type = "cpu"
-      minimum = 4
+      minimum = 2
       maximum = 16
     }
     resource_limits {
