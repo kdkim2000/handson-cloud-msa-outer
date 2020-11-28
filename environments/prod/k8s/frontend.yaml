@@ -12,6 +12,7 @@ spec:
         app: eshop-frontend
         version: v2
     spec:
+      replicas: 2
       containers:
         - name: eshop-frontend
           image: gcr.io/architect-certification-289902/11/eshop-frontend:2

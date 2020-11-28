@@ -2,7 +2,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
   name: eshop-gateway
-  namespace: eshop-app
+  namespace: default
 spec:
   selector:
     istio: ingressgateway # use istio default controller
