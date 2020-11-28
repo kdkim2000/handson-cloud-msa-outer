@@ -43,7 +43,7 @@ resource "google_container_cluster" "primary" {
 
 # Separately Managed Node Pool
 resource "google_container_node_pool" "primary_nodes" {
-  name       = "${google_container_cluster.primary.name}"
+  name       = "architect-certification-289902-11-prod"
   location   = var.region
   cluster    = google_container_cluster.primary.name
 
