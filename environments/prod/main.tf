@@ -18,7 +18,7 @@ provider "google-beta" {
   Kubernetes provider configuration
  *****************************************/
 provider "kubernetes" {
-  version                = "~> 1.10"
+  version                = "~> 1.13"
   load_config_file       = false
   config_path = "~/.kube/config"
   #host                   = google_container_cluster.primary.endpoint
