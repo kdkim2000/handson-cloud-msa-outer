@@ -72,3 +72,13 @@ resource "google_container_node_pool" "primary_nodes" {
     max_node_count = 2
   }
 }
+
+resource "kubernetes_namespace" "default" {
+    metadata {
+        annotations      = {}
+        labels           = {
+          istio-injection = "enabled"
+        }
+        name             = "default"
+    }
+}
