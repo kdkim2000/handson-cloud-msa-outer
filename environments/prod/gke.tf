@@ -73,6 +73,3 @@ resource "google_container_node_pool" "primary_nodes" {
   }
 }
 
-resource "kubernetes_namespace" "default" {
-
-}
