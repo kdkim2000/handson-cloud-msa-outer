@@ -37,30 +37,18 @@ spec:
         host: eshop-cartservice
         port:
           number: 8091
-      weight: 50
-    - destination:
-        host: eshop-cartservice
-        port:
-          number: 8091
-      weight: 50
   - match:
     - uri:
         prefix: /api/products/
     - uri:
         exact: /api/products
     rewrite:
-      uri: /
+      uri: "/"
     route:
     - destination:
         host: eshop-productservice
         port:
           number: 8092
-      weight: 50
-    - destination:
-        host: eshop-productservice
-        port:
-          number: 8092
-      weight: 50
   - match:
     - uri:
         prefix: /api/recommends/
@@ -121,31 +109,5 @@ spec:
     route:
     - destination:
         host: eshop-frontend
-        subset: v1
         port:
           number: 8080
-      weight: 50
-    - destination:
-        host: eshop-frontend
-        subset: v2
-        port:
-          number: 8080
-      weight: 50
----
-apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: eshop-virtual-service
-  namespace: default
-spec:
-  host: eshop-frontend
-  trafficPolicy:
-    tls:
-      mode: ISTIO_MUTUAL
-  subsets:
-  - name: v1
-    labels:
-      version: v1
-  - name: v2
-    labels:
-      version: v2
